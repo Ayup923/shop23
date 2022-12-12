@@ -17,3 +17,16 @@ class Product(models.Model):
     
     def __str__(self) -> str:
         return f'[{self.category} -> {self.title}]'
+
+    @property
+    def avarage_rating(self):
+        ratings = self.ratings.all()
+        values = []
+        for rating in ratings:
+            values.append(rating.value)
+        if values:
+            return sum(values) / len(values)
+        return 0
+    
+    class Meta:
+        ordering = ['id']
