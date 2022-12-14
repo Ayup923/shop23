@@ -7,6 +7,7 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
@@ -14,7 +15,8 @@ class Product(models.Model):
     quantity = models.IntegerField()
     description = models.TextField()
     status = models.CharField(max_length=15, choices=[('есть в наличии', 'in stock'), ('нет в наличии', 'out of stuck'), ('ожидается', 'pending')])
-    
+    image = models.ImageField(upload_to='products', null=True)
+
     def __str__(self) -> str:
         return f'[{self.category} -> {self.title}]'
 
