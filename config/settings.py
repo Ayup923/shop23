@@ -172,9 +172,4 @@ SWAGGER_SETTINGS = {
     }
 }
 
-CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:3000/',
-    'http://localhost:3000/',
-    'https://www.thunderclient.com',
-    'https://shop23-production.up.railway.app',
-]
+CORS_ALLOWED_ALL = True

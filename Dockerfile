@@ -20,8 +20,6 @@ ENV DB_PORT=5890
 ENV DEBUG=1
 ENV ALLOWED_HOSTS=0.0.0.0,127.0.0.1,shop23-production.up.railway.app
 ENV PORT=8000
-
-RUN python3 manage.py migrate
 RUN python3 manage.py collectstatic
 
 CMD gunicorn --bind 0.0.0.0:$PORT config.wsgi:application
